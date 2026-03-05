@@ -1,12 +1,11 @@
-'use client';
-
 import Hero from '@/components/home/Hero';
 import Step from '@/components/home/Step';
 import '@/styles/home.css';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] relative overflow-hidden">
+    <div className="min-h-screen bg-[#0A0A0A] relative overflow-clip">
       {/* ── Grain overlay ── */}
       <div
         className="animate-grain fixed inset-[-50%] w-[200%] h-[200%] pointer-events-none z-1 opacity-[0.035]"
@@ -16,11 +15,11 @@ export default function HomePage() {
       />
 
       {/* ── Ambient glows ── */}
-      <div className="absolute -top-52 -right-24 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(245,166,35,0.07)_0%,transparent_70%)] pointer-events-none z-0" />
-      <div className="absolute -bottom-72 -left-48 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(126,184,164,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="absolute -top-52 -right-24 w-175 h-175 rounded-full bg-[radial-gradient(circle,rgba(245,166,35,0.07)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="absolute -bottom-72 -left-48 w-200 h-200 rounded-full bg-[radial-gradient(circle,rgba(126,184,164,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
 
       {/* ── NAV ── */}
-      <nav className="animate-fade-in relative z-10 flex justify-between items-center px-12 py-6 border-b border-white/[0.06]">
+      <nav className="animate-fade-in relative z-10 flex justify-between items-center px-12 py-6 border-b border-white/6">
         <div className="font-serif text-[22px] text-[#F5F0E8] tracking-[-0.02em] flex items-center gap-2">
           <span className="text-[#F5A623]">♪</span> Collabify
         </div>
@@ -36,10 +35,10 @@ export default function HomePage() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="relative z-2 max-w-[1200px] mx-auto px-12 pt-20 pb-24">
+      <section className="relative z-2 max-w-300 mx-auto px-12 pt-20 pb-24">
         <div className="flex flex-col lg:flex-row items-center gap-16 justify-between">
           {/* Left: copy */}
-          <div className="flex-1 max-w-[560px] text-center lg:text-left">
+          <div className="flex-1 max-w-140 text-center lg:text-left">
             {/* Eyebrow */}
             <div className="animate-fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F5A623]/30 bg-[#F5A623]/[0.07] mb-7">
               <div className="w-1.5 h-1.5 rounded-full bg-[#F5A623] animate-pulse" />
@@ -58,7 +57,7 @@ export default function HomePage() {
             </h1>
 
             {/* Subheading */}
-            <p className="animate-fade-up delay-2 font-sans font-light text-[17px] leading-[1.7] text-white/50 mb-10 max-w-[420px] mx-auto lg:mx-0">
+            <p className="animate-fade-up delay-2 font-sans font-light text-[17px] leading-[1.7] text-white/50 mb-10 max-w-105 mx-auto lg:mx-0">
               Create a room, invite your friends, and let the crowd decide.
               Everyone suggests tracks, everyone votes — the best songs rise,
               the rest sink.
@@ -81,12 +80,12 @@ export default function HomePage() {
                   />
                 </svg>
               </a>
-              <a
+              <Link
                 href="#how-it-works"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent text-white/60 border border-white/[0.12] rounded-full font-sans font-normal text-[15px] transition-all duration-200 hover:border-white/30 hover:text-white/90 hover:bg-white/[0.04]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent text-white/60 border border-white/12 rounded-full font-sans text-[15px] transition-all duration-200 hover:border-white/30 hover:text-white/90 hover:bg-white/4"
               >
                 See how it works
-              </a>
+              </Link>
             </div>
 
             {/* Social proof */}
@@ -100,7 +99,7 @@ export default function HomePage() {
                 ].map((color, i) => (
                   <div
                     key={i}
-                    className={`w-[30px] h-[30px] rounded-full border-2 border-[#0A0A0A] opacity-80 ${color} ${i > 0 ? '-ml-2' : ''}`}
+                    className={`w-7.5 h-7.5 rounded-full border-2 border-[#0A0A0A] opacity-80 ${color} ${i > 0 ? '-ml-2' : ''}`}
                   />
                 ))}
               </div>
@@ -111,21 +110,21 @@ export default function HomePage() {
           </div>
 
           {/* Right: live mockup */}
-          <div className="animate-fade-in delay-5 flex-shrink-0">
+          <div className="animate-fade-in delay-5 shrink-0">
             <Hero />
           </div>
         </div>
       </section>
 
       {/* ── DIVIDER ── */}
-      <div className="max-w-[1200px] mx-auto px-12">
+      <div className="max-w-300 mx-auto px-12">
         <div className="h-px bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.08)_30%,rgba(255,255,255,0.08)_70%,transparent)]" />
       </div>
 
       {/* ── HOW IT WORKS ── */}
       <section
         id="how-it-works"
-        className="relative z-[2] max-w-[1200px] mx-auto px-12 py-24"
+        className="relative z-2 max-w-300 mx-auto px-12 py-24"
       >
         <p className="font-sans font-medium text-[12px] text-white/25 tracking-[0.12em] uppercase mb-12">
           How it works
@@ -164,7 +163,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="relative z-[2] border-t border-white/[0.06] px-12 py-7 flex justify-between items-center">
+      <footer className="relative z-2 border-t border-white/6 px-12 py-7 flex justify-between items-center">
         <div className="font-serif text-base text-white/30">
           <span className="text-[#F5A623]/50">♪</span> Collabify
         </div>
