@@ -1,11 +1,3 @@
-/**
- * app/dashboard/page.tsx
- *
- * Server Component — renders after verifySession() in layout.tsx.
- * Fetches owned rooms and joined rooms in a single parallel query.
- * All interactive islands are imported as client components.
- */
-
 import Link from 'next/link';
 import { verifySession } from '@/lib/dal';
 import { createClient } from '@/lib/supabase/server';
@@ -105,6 +97,7 @@ export default async function DashboardPage() {
     hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
   const firstName = user.displayName.split(' ')[0];
+  const roomCount = owned.length + joined.length;
 
   return (
     <>
@@ -112,7 +105,7 @@ export default async function DashboardPage() {
       <div className="pointer-events-none absolute -top-52 -right-24 z-0 h-175 w-175 bg-[radial-gradient(circle,rgba(245,166,35,0.07)_0%,transparent_70%)]" />
       <div className="pointer-events-none absolute -bottom-72 -left-48 z-0 h-200 w-200 bg-[radial-gradient(circle,rgba(126,184,164,0.05)_0%,transparent_70%)]" />
 
-      {/* ── Nav ── */}
+      {/* Nav */}
       <nav className="top-0 z-20 border-b border-white/6">
         <div className="mx-auto flex h-14 items-center justify-between px-8">
           {/* Logo */}
@@ -143,7 +136,7 @@ export default async function DashboardPage() {
         </div>
       </nav>
 
-      {/* ── Main content ── */}
+      {/* Main content */}
       <main className="relative z-10 mx-auto max-w-275 px-8 pt-12 pb-20">
         {/* Page header */}
         <div className="animate-fade-up mb-10">
@@ -152,9 +145,9 @@ export default async function DashboardPage() {
             <em className="text-[#F5A623] not-italic">{firstName}.</em>
           </h1>
           <p className="font-sans text-[15px] font-light text-white/35">
-            {owned.length + joined.length === 0
+            {roomCount === 0
               ? 'Create your first room to get started.'
-              : `You have ${owned.length + joined.length} active ${owned.length + joined.length === 1 ? 'room' : 'rooms'}.`}
+              : `You have ${roomCount} active ${roomCount === 1 ? 'room' : 'rooms'}.`}
           </p>
         </div>
 
