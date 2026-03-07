@@ -51,7 +51,7 @@ const VOTE_SEQUENCE = [
   [3, 1],
 ];
 
-export default function Hero() {
+export default function VotingDisplay() {
   const [songs, setSongs] = useState(INITIAL_SONGS);
   const [activeSongId, setActiveSongId] = useState(0);
   const stepRef = useRef(0);
@@ -77,19 +77,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="bg-white/3 border border-white/9 rounded-4xl p-5 w-full max-w-85 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.04)]">
+    <div className="w-full max-w-85 rounded-4xl border border-white/9 bg-white/3 p-5 shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl">
       {/* Mockup header */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="mb-4 flex items-center justify-between">
         <div>
-          <p className="font-sans font-medium text-[13px] text-white/85">
+          <p className="font-sans text-[13px] font-medium text-white/85">
             Friday Night 🎉
           </p>
-          <p className="font-sans font-light text-[11px] text-white/35 mt-0.5">
-            4 members · live voting
+          <p className="mt-0.5 font-sans text-[11px] font-light text-white/35">
+            20 members · live voting
           </p>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
           <span className="font-sans text-[11px] font-medium text-green-500">
             LIVE
           </span>
@@ -109,8 +109,8 @@ export default function Hero() {
       </div>
 
       {/* Footer bar */}
-      <div className="mt-4 px-3.5 py-2.5 rounded-[10px] bg-[#F5A623]/10 border border-[#F5A623]/20 flex items-center gap-2">
-        <div className="w-5 h-5 rounded-full bg-[#F5A623]/30 flex items-center justify-center shrink-0">
+      <div className="mt-4 flex items-center gap-2 rounded-[10px] border border-[#F5A623]/20 bg-[#F5A623]/10 px-3.5 py-2.5">
+        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F5A623]/30">
           <svg width="8" height="10" viewBox="0 0 8 10" fill="none">
             <path d="M1 1L7 5L1 9V1Z" fill="#F5A623" />
           </svg>
