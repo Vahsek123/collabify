@@ -13,30 +13,9 @@
     transform: rotate(360deg);
   }
 }
-@keyframes grain {
-  0%,
-  100% {
-    background-position: 0 0;
-  }
-  20% {
-    background-position: -30px -15px;
-  }
-  40% {
-    background-position: 10px -25px;
-  }
-  60% {
-    background-position: -20px 10px;
-  }
-  80% {
-    background-position: 25px 5px;
-  }
-}
 
 .animate-fade-up {
   animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-.animate-grain {
-  animation: grain 8s steps(10) infinite;
 }
 .animate-spin-slow {
   animation: spin 0.8s linear infinite;
