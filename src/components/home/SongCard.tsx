@@ -20,17 +20,17 @@ export default function SongCard({ song, rank, isActive }: SongCardProps) {
   return (
     <div
       className={cn(
-        'flex items-center gap-3.5 px-4 py-3 rounded-xl',
+        'flex items-center gap-3.5 rounded-xl px-4 py-3',
         'border transition-all duration-500',
         isActive
-          ? 'bg-[#F5A623]/8 border-[#F5A623]/30 translate-x-1'
-          : 'bg-white/4 border-white/[0.07] translate-x-0',
+          ? 'translate-x-1 border-[#F5A623]/30 bg-[#F5A623]/8'
+          : 'translate-x-0 border-white/[0.07] bg-white/4',
       )}
     >
       {/* Rank */}
       <span
         className={cn(
-          'font-serif text-[11px] w-4 text-center shrink-0 transition-colors duration-400',
+          'w-4 shrink-0 text-center font-serif text-[11px] transition-colors duration-400',
           isActive ? 'text-[#F5A623]' : 'text-white/20',
         )}
       >
@@ -47,17 +47,17 @@ export default function SongCard({ song, rank, isActive }: SongCardProps) {
       />
 
       {/* Song info */}
-      <div className="flex-1 min-w-0">
-        <p className="font-sans font-medium text-[13px] text-white/90 truncate">
+      <div className="min-w-0 flex-1">
+        <p className="truncate font-sans text-[13px] font-medium text-white/90">
           {song.title}
         </p>
-        <p className="font-sans font-light text-[11px] text-white/40 mt-px">
+        <p className="mt-px font-sans text-[11px] font-light text-white/40">
           {song.artist}
         </p>
       </div>
 
       {/* Vote count */}
-      <div className="flex flex-col items-center gap-0.75 shrink-0">
+      <div className="flex shrink-0 flex-col items-center gap-0.75">
         <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
           <path
             d="M5 0L10 7H0L5 0Z"
