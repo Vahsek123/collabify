@@ -119,9 +119,21 @@ export default async function DashboardPage() {
           {/* User + sign out */}
           <div className="flex items-center gap-3">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F5A623]/20">
-              <span className="font-serif text-[11px] text-[#F5A623]">
-                {user.displayName[0].toUpperCase()}
-              </span>
+              {user.avatarUrl ? (
+                <Image
+                  src={user.avatarUrl}
+                  width={28}
+                  height={28}
+                  alt={user.displayName}
+                  className="rounded-full object-cover"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center">
+                  <span className="font-serif text-[10px] text-[#F5A623]">
+                    {user.displayName[0].toUpperCase()}
+                  </span>
+                </div>
+              )}
             </div>
             <SignOutButton />
           </div>

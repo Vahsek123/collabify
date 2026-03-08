@@ -69,7 +69,7 @@ export default function DashboardActions() {
             }}
             onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
             placeholder="Enter invite code"
-            maxLength={8}
+            maxLength={6}
             className={[
               'flex-1 rounded-xl border bg-white/4 px-4 py-3 font-sans text-[14px] font-normal text-[#F5F0E8] placeholder-white/20 transition-all duration-200 outline-none',
               joinError
@@ -79,8 +79,8 @@ export default function DashboardActions() {
           />
           <button
             onClick={handleJoin}
-            disabled={joining || !code.trim()}
-            className="rounded-xl border border-white/9 bg-white/5 px-4 py-3 font-sans text-[13px] font-medium text-white/60 transition-all duration-150 hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={joining || code.trim().length < 6}
+            className="rounded-xl border border-white/9 bg-white/5 px-4 py-3 font-sans text-[13px] font-medium text-white/60 transition-all duration-150 hover:border-white/25 hover:bg-white/8 hover:text-white/90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {joining ? '…' : 'Join'}
           </button>
