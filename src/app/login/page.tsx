@@ -59,14 +59,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#0A0A0A]">
-      {/* ── Grain overlay ── */}
-      <div
-        className={`bg-noise pointer-events-none absolute inset-0 z-1 bg-size-[256px] opacity-[0.035]`}
-      />
-
+    <>
       {/* ── Ambient glow — centred behind card ── */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-150 w-150 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(245,166,35,0.08)_0%,transparent_65%)]" />
+      <div className="pointer-events-none absolute top-1/3 left-1/2 z-0 h-150 w-150 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(245,166,35,0.08)_0%,transparent_65%)]" />
 
       {/* ── Nav ── */}
       <nav className="relative z-10 flex items-center justify-between px-12 py-6">
@@ -155,6 +150,6 @@ export default function LoginPage() {
           </p>
         </div>
       </main>
-    </div>
+    </>
   );
 }

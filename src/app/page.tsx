@@ -2,14 +2,12 @@ import VotingDisplay from '@/components/home/VotingDisplay';
 import Step from '@/components/home/Step';
 import SpotifyIcon from '@/components/SpotifyIcon';
 import '@/styles/home.css';
-import AnchorLink from '@/components/ui/AnchorLink';
+import AnchorLink from '@/components/AnchorLink';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-clip bg-[#0A0A0A]">
-      {/* Grain overlay */}
-      <div className="bg-noise pointer-events-none absolute inset-0 z-1 bg-size-[256px] opacity-[0.035]" />
-
+    <>
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -top-52 -right-24 z-0 h-175 w-175 bg-[radial-gradient(circle,rgba(245,166,35,0.07)_0%,transparent_70%)]" />
       <div className="pointer-events-none absolute -bottom-72 -left-48 z-0 h-200 w-200 bg-[radial-gradient(circle,rgba(126,184,164,0.05)_0%,transparent_70%)]" />
@@ -59,7 +57,7 @@ export default function HomePage() {
 
             {/* CTAs */}
             <div className="animate-fade-up flex flex-wrap items-center justify-center gap-3.5 delay-3 lg:justify-start">
-              <a
+              <Link
                 href="/login"
                 className="inline-flex items-center gap-2.5 rounded-full bg-[#F5A623] px-7 py-3.5 font-sans text-[15px] font-medium tracking-[-0.01em] text-[#0A0A0A] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#F7B740] hover:shadow-[0_12px_32px_rgba(245,166,35,0.35)] active:translate-y-0"
               >
@@ -73,13 +71,7 @@ export default function HomePage() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
-              <AnchorLink
-                id={'how-it-works'}
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-3.5 font-sans text-[15px] text-white/60 transition-all duration-200 hover:border-white/30 hover:bg-white/4 hover:text-white/90"
-              >
-                See how it works
-              </AnchorLink>
+              </Link>
             </div>
 
             {/* Social proof */}
@@ -163,6 +155,6 @@ export default function HomePage() {
         </div>
         <p className="font-sans text-xs font-light text-white/20">Vahsek123</p>
       </footer>
-    </div>
+    </>
   );
 }

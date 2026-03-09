@@ -29,7 +29,10 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${dmSerif.variable} antialiased`}
       >
-        {children}
+        <div className="relative min-h-screen overflow-clip bg-[#0A0A0A]">
+          <div className="bg-noise pointer-events-none fixed inset-0 z-1 bg-size-[256px] opacity-[0.035]" />
+          {children}
+        </div>
       </body>
     </html>
   );
