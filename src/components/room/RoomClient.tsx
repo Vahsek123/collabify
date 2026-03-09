@@ -87,7 +87,12 @@ export default function RoomClient({
 
           if (payload.eventType === 'DELETE') {
             setSongs((prev) =>
-              prev.filter((s) => s.id !== (payload.old as Song).id),
+              prev.filter((s) => {
+                return (
+                  (payload.old as Song).room_id === room.id &&
+                  s.id !== (payload.old as Song).id
+                );
+              }),
             );
           }
         },
@@ -131,7 +136,7 @@ export default function RoomClient({
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [room.id]);
+  }, []);
 
   const handleVote = useCallback(
     async (songId: string, value: 1 | -1 | null) => {

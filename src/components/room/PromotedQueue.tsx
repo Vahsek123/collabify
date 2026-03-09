@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import SpotifyIcon from '../SpotifyIcon';
 
 interface Song {
   id: string;
@@ -180,14 +181,7 @@ export default function PromotedQueue({
               </>
             ) : (
               <>
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 13 13"
-                  fill="currentColor"
-                >
-                  <path d="M6.5 0C2.91 0 0 2.91 0 6.5S2.91 13 6.5 13 13 10.09 13 6.5 10.09 0 6.5 0zm2.99 9.38c-.13.2-.36.26-.56.13-1.54-.95-3.47-1.16-5.75-.63-.23.07-.43-.1-.49-.3-.07-.23.1-.43.3-.49 2.49-.57 4.64-.32 6.37.72.22.1.26.36.13.57zm.79-1.8c-.16.23-.46.32-.69.16-1.76-1.08-4.44-1.4-6.52-.76-.26.07-.55-.07-.62-.33-.07-.26.07-.55.33-.62 2.38-.72 5.33-.37 7.34.89.2.1.29.43.16.66zm.07-1.87c-2.11-1.25-5.59-1.37-7.61-.75-.32.1-.66-.1-.76-.42-.1-.32.1-.66.42-.76 2.31-.7 6.15-.56 8.57.87.29.16.39.53.23.82-.16.26-.53.36-.85.24z" />
-                </svg>
+                <SpotifyIcon size={16} />
                 Push {songs.length} {songs.length === 1 ? 'song' : 'songs'} to
                 Spotify
               </>
