@@ -206,6 +206,30 @@ export type Database = {
           },
         ];
       };
+      user_tokens: {
+        Row: {
+          spotify_access_token: string;
+          spotify_refresh_token: string;
+          spotify_token_expires_at: string;
+          updated_at: string;
+          user_id: string;
+        };
+        Insert: {
+          spotify_access_token: string;
+          spotify_refresh_token: string;
+          spotify_token_expires_at: string;
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          spotify_access_token?: string;
+          spotify_refresh_token?: string;
+          spotify_token_expires_at?: string;
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       votes: {
         Row: {
           created_at: string | null;
@@ -247,7 +271,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      is_room_member: { Args: { p_room_id: string }; Returns: boolean };
     };
     Enums: {
       [_ in never]: never;
