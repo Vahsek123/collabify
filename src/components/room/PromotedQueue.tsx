@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import SpotifyIcon from '../SpotifyIcon';
+import Link from 'next/link';
 
 interface Song {
   id: string;
@@ -36,8 +37,8 @@ export default function PromotedQueue({
     setPushed(false);
 
     try {
-      const res = await fetch(`/api/rooms/${roomId}/push`, {
-        method: 'POST',
+      const res = await fetch(`/api/rooms/${roomId}/playlist`, {
+        method: 'PUT',
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -76,20 +77,15 @@ export default function PromotedQueue({
           )}
         </div>
         {playlistUrl && (
-          <a
+          <Link
             href={playlistUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 font-sans text-[11px] font-normal text-white/30 transition-colors duration-150 hover:text-white/60"
           >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <path
-                d="M5 0C2.24 0 0 2.24 0 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm2.3 7.22c-.1.15-.28.2-.43.1-1.17-.72-2.65-.88-4.4-.47-.17.05-.32-.07-.37-.22-.05-.18.07-.33.23-.37 1.9-.43 3.55-.25 4.85.55.17.08.2.27.12.41zm.6-1.37c-.12.17-.35.25-.52.13-1.35-.82-3.4-1.07-4.97-.58-.2.05-.43-.05-.47-.25-.05-.2.05-.42.25-.47 1.81-.55 4.05-.28 5.59.67.15.08.22.33.12.5zm.05-1.4C6.35 3.5 3.68 3.4 2.15 3.88c-.25.07-.5-.08-.57-.3-.07-.25.08-.5.3-.57 1.77-.52 4.7-.42 6.55.67.22.12.3.42.17.65-.13.18-.43.25-.65.12z"
-                fill="currentColor"
-              />
-            </svg>
+            <SpotifyIcon size={12} />
             View playlist
-          </a>
+          </Link>
         )}
       </div>
 

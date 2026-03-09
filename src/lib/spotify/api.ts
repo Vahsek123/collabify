@@ -61,11 +61,10 @@ export async function searchTracks(
 
 // Create a playlist on the owner's Spotify account
 export async function createPlaylist(
-  spotifyUserId: string,
   name: string,
   accessToken: string,
 ): Promise<{ id: string; external_urls: { spotify: string } }> {
-  return spotifyFetch(`/users/${spotifyUserId}/playlists`, accessToken, {
+  return spotifyFetch(`/me/playlists`, accessToken, {
     method: 'POST',
     body: JSON.stringify({
       name,
@@ -88,7 +87,7 @@ export async function addTracksToPlaylist(
   }
 
   for (const chunk of chunks) {
-    await spotifyFetch(`/playlists/${playlistId}/tracks`, accessToken, {
+    await spotifyFetch(`/playlists/${playlistId}/items`, accessToken, {
       method: 'POST',
       body: JSON.stringify({ uris: chunk }),
     });

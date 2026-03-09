@@ -328,7 +328,7 @@ export default function RoomClient({
                   onPushed={() => {
                     // Realtime will update the song statuses.
                     // Refresh playlist URL if it was just created.
-                    fetch(`/api/rooms/${room.id}/playlist-url`)
+                    fetch(`/api/rooms/${room.id}/playlist`)
                       .then((r) => r.json())
                       .then((d) => d.url && setPlaylistUrl(d.url))
                       .catch(() => {});
